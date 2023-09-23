@@ -1,0 +1,7 @@
+.card{
+    grid-area: 'card';
+}
+
+.card > img{
+    height: 100px;
+}
