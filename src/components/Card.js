@@ -1,11 +1,18 @@
-import styles from './Card.module.css'
+import styles from "./Card.module.css";
 
-const Card = (card) => {
+const Card = ({ src }) => {
   return (
-    <div className={styles.card}>
-      <img src={card.image} alt=''/>
+    <div className={styles.cardContainer}>
+      <div className={styles.card}>
+        <div className={styles.backCard}></div>
+        <img
+          className={`${styles.frontCard} ${styles.hidden}`}
+          src={src}
+          alt="Card"
+        />
+      </div>
     </div>
-  )
-}
+  );
+};
 
-export default Card
+export default Card;

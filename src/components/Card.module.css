@@ -1,7 +1,37 @@
-.card{
-    grid-area: 'card';
+.cardContainer {
+  height: 60px;
+  width: 43.17px;
 }
 
-.card > img{
-    height: 100px;
+.cardContainer:hover > .card {
+  transform: rotateY(180deg);
+}
+
+.card {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  cursor: pointer;
+  transform-style: preserve-3d;
+  transition: transform 0.5s;
+}
+
+.frontCard,
+.backCard {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  backface-visibility: hidden;
+}
+
+.hidden {
+  transform: rotateY(180deg);
+}
+
+.backCard {
+  background-image: url("../imgs/card-back.jpg");
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+  border-radius: 5px;
 }

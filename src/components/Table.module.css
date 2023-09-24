@@ -1,15 +1,12 @@
-.table{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+.table {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
 }
 
-.table > *{
-    display: flex;
-    gap: 5px;
-}
-
-.table img{
-    height: 50px;
+.table > * {
+  display: flex;
+  gap: 5px;
 }
