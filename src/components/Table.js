@@ -1,8 +1,22 @@
 import { useState, useEffect } from "react";
 import styles from "./Table.module.css";
 import Card from "./Card";
+import useFetch from "../Hooks/useFetch";
+import { GET_CARDS } from "../api";
 
 const Table = () => {
+  const { data, error, loading, request } = useFetch();
+  console.log(data, error, loading);
+
+  useEffect(() => {
+    async function getData() {
+      const { url, options } = GET_CARDS(36);
+      await request(url, options);
+    }
+    getData();
+  }, [request]);
+
+  /*
   const endPoint = `https://www.deckofcardsapi.com/api/deck/new/draw/?count=${36}`;
   const [tableCards, setTableCards] = useState([]);
 
@@ -53,7 +67,10 @@ const Table = () => {
         })()}
       </div>
     );
-  }
+  }*/
+  return(
+    <div></div>
+  )
 };
 
 export default Table;
