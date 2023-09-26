@@ -6,7 +6,7 @@ import { GET_CARDS } from "../api";
 
 const Table = () => {
   const { data, error, loading, request } = useFetch();
-  console.log(data, error, loading);
+  console.log(error);
 
   useEffect(() => {
     async function getData() {
@@ -68,9 +68,7 @@ const Table = () => {
       </div>
     );
   }*/
-  return(
-    <div></div>
-  )
+  return <div></div>;
 };
 
 export default Table;
