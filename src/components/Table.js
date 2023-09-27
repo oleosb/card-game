@@ -1,12 +1,12 @@
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
 import styles from "./Table.module.css";
 import Card from "./Card";
 import useFetch from "../Hooks/useFetch";
 import { GET_CARDS } from "../api";
+import UserPlus from "../imgs/user-plus.svg";
 
 const Table = () => {
-  const { data, error, loading, request } = useFetch();
-  console.log(error);
+  const { request } = useFetch();
 
   useEffect(() => {
     async function getData() {
@@ -68,7 +68,37 @@ const Table = () => {
       </div>
     );
   }*/
-  return <div></div>;
+  return (
+    <div className={styles.table}>
+      {(() => {
+        let rows = [];
+        let n = 5;
+        let cardC = [];
+
+        for (let i = 1; i <= n; i++) {
+          rows.push(
+            <div key={i} data="row">
+              {(() => {
+                let columns = [];
+                for (let j = 1; j <= 2 * n - 1; j++) {
+                  if (j >= n - (i - 1) && j <= n + (i - 1)) {
+                    columns.push(<Card key={j} />);
+                    cardC.push("+1");
+                  }
+                }
+                return columns;
+              })()}
+            </div>
+          );
+        }
+        return rows;
+      })()}
+
+      <footer>
+        <img src={UserPlus} alt="Add Player" />
+      </footer>
+    </div>
+  );
 };
 
 export default Table;
