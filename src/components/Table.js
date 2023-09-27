@@ -1,9 +1,9 @@
-import { useEffect } from "react";
 import styles from "./Table.module.css";
 import Card from "./Card";
+import UserPlus from "../imgs/user-plus.svg";
+import { useEffect } from "react";
 import useFetch from "../Hooks/useFetch";
 import { GET_CARDS } from "../api";
-import UserPlus from "../imgs/user-plus.svg";
 
 const Table = () => {
   const { request } = useFetch();
@@ -94,8 +94,15 @@ const Table = () => {
         return rows;
       })()}
 
-      <footer>
-        <img src={UserPlus} alt="Add Player" />
+      <footer className={styles.footer}>
+        <div className={styles.addPlayers}>
+          <img src={UserPlus} alt="Add Player" />
+          <span>Adicionar jogador</span>
+        </div>
+        <div className={styles.start}>
+          <img src={UserPlus} alt="Add Player" />
+          <span>Dar cartas</span>
+        </div>
       </footer>
     </div>
   );

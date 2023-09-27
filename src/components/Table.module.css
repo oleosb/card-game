@@ -4,6 +4,9 @@
   justify-content: center;
   align-items: center;
   gap: 5px;
+  width: 100vw;
+  height: 100vh;
+  position: relative;
 }
 
 .table > * {
@@ -11,7 +14,42 @@
   gap: 5px;
 }
 
+.footer {
+  width: 100%;
+  max-width: 400px;
+  position: absolute;
+  bottom: 20px;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.footer > div {
+  padding: 5px 10px;
+  border: 1px solid #000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.footer > div:hover {
+  transform: scale(1.01);
+  background: #000;
+  color: green;
+}
+
+.footer > div:hover img {
+  filter: invert(25%) sepia(93%) saturate(6417%) hue-rotate(122deg)
+    brightness(96%) contrast(103%);
+}
+
+.footer > div:active {
+  transform: scale(0.95);
+}
+
 footer img {
-  width: 40px;
-  height: 50px;
+  height: 20px;
 }
