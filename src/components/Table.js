@@ -69,6 +69,7 @@ const Table = () => {
     );
   }*/
   return (
+    
     <div className={styles.table}>
       {(() => {
         let rows = [];
@@ -95,14 +96,14 @@ const Table = () => {
       })()}
 
       <footer className={styles.footer}>
-        <div className={styles.addPlayers}>
+        <button className={styles.addPlayers}>
           <img src={UserPlus} alt="Add Player" />
           <span>Adicionar jogador</span>
-        </div>
-        <div className={styles.start}>
+        </button>
+        <button className={styles.start}>
           <img src={UserPlus} alt="Add Player" />
           <span>Dar cartas</span>
-        </div>
+        </button>
       </footer>
     </div>
   );

@@ -1,0 +1,41 @@
+.players {
+  width: 100vw;
+  height: 100vh;
+  padding: 10% 5%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  background: blanchedalmond;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.addPlayer {
+  margin: 20px 0 0 0;
+  width: 35px;
+  height: 35px;
+  border: 2px solid #000;
+  background: none;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: 0.2s ease;
+}
+
+.addPlayer:hover {
+  border: #ffebcd;
+  background: #000;
+}
+
+.addPlayer:hover img {
+  filter: invert(96%) sepia(83%) saturate(411%) hue-rotate(308deg)
+    brightness(99%) contrast(104%);
+}
+
+.addPlayer img {
+  width: 20px;
+  height: 20px;
+}
