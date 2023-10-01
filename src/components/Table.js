@@ -6,6 +6,8 @@ import { GET_CARDS } from "../api";
 import Button from "./Button";
 import { ReactComponent as CardIcon } from "../imgs/cardIcon.svg";
 import { ReactComponent as UserPlus } from "../imgs/user-plus.svg";
+import { ReactComponent as Info } from "../imgs/circle-info-solid.svg";
+import { ReactComponent as Users } from "../imgs/users-solid.svg";
 
 const Table = () => {
   const { request } = useFetch();
@@ -72,6 +74,10 @@ const Table = () => {
   }*/
   return (
     <div className={styles.table}>
+      <div className={styles.header}>
+        <Button Svg={Users}>Ver jogadores</Button>
+        <Button Svg={Info}>Como jogar</Button>
+      </div>
       {(() => {
         let rows = [];
         let n = 5;
@@ -96,10 +102,10 @@ const Table = () => {
         return rows;
       })()}
 
-      <footer className={styles.footer}>
+      <div className={styles.footer}>
         <Button Svg={UserPlus}>Adicionar jogador</Button>
         <Button Svg={CardIcon}>Dar cartas</Button>
-      </footer>
+      </div>
     </div>
   );
 };
