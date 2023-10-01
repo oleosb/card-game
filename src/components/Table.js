@@ -1,9 +1,11 @@
 import styles from "./Table.module.css";
 import Card from "./Card";
-import UserPlus from "../imgs/user-plus.svg";
 import { useEffect } from "react";
 import useFetch from "../Hooks/useFetch";
 import { GET_CARDS } from "../api";
+import Button from "./Button";
+import { ReactComponent as CardIcon } from "../imgs/cardIcon.svg";
+import { ReactComponent as UserPlus } from "../imgs/user-plus.svg";
 
 const Table = () => {
   const { request } = useFetch();
@@ -69,7 +71,6 @@ const Table = () => {
     );
   }*/
   return (
-    
     <div className={styles.table}>
       {(() => {
         let rows = [];
@@ -96,14 +97,8 @@ const Table = () => {
       })()}
 
       <footer className={styles.footer}>
-        <button className={styles.addPlayers}>
-          <img src={UserPlus} alt="Add Player" />
-          <span>Adicionar jogador</span>
-        </button>
-        <button className={styles.start}>
-          <img src={UserPlus} alt="Add Player" />
-          <span>Dar cartas</span>
-        </button>
+        <Button Svg={UserPlus}>Adicionar jogador</Button>
+        <Button Svg={CardIcon}>Dar cartas</Button>
       </footer>
     </div>
   );

@@ -24,28 +24,6 @@
   align-items: center;
 }
 
-.footer > button {
-  padding: 5px 10px;
-  border: 1px solid #000;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 5px;
-  cursor: pointer;
-  transition: transform 0.2s ease;
-  background: transparent;
-}
-
-.footer > button:hover {
-  transform: scale(1.01);
-  background: #000;
-  color: green;
-}
-
-.footer > button:hover img {
-  filter: invert(25%) sepia(93%) saturate(6417%) hue-rotate(122deg)
-    brightness(96%) contrast(103%);
-}
 
 .footer > button:active {
   transform: scale(0.95);
