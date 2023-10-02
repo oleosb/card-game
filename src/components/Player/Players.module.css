@@ -12,30 +12,10 @@
   gap: 10px;
 }
 
-.addPlayer {
+footer {
   margin: 20px 0 0 0;
-  width: 35px;
-  height: 35px;
-  border: 2px solid var(--tertiary-color);
-  background: none;
-  border-radius: 50%;
+  width: 100%;
   display: flex;
-  justify-content: center;
+  justify-content: space-evenly;
   align-items: center;
-  transition: 0.2s ease;
-}
-
-.addPlayer:hover {
-  border: var(--secondary-color);
-  background: var(--tertiary-color);
-}
-
-.addPlayer:hover img {
-  filter: invert(96%) sepia(83%) saturate(411%) hue-rotate(308deg)
-    brightness(99%) contrast(104%);
-}
-
-.addPlayer img {
-  width: 20px;
-  height: 20px;
 }
