@@ -1,15 +1,24 @@
 .players {
   width: 100vw;
+  max-width: 500px;
   height: 100vh;
   padding: 10% 5%;
   position: absolute;
-  left: 0;
   top: 0;
   background: var(--secondary-color);
   display: flex;
   align-items: center;
   flex-direction: column;
   gap: 10px;
+  transition: left .3s ease;
+}
+
+.players.open {
+  left: 0;
+}
+
+.players.close {
+  left: -100%;
 }
 
 footer {

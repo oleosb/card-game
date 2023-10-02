@@ -111,7 +111,7 @@ const Table = () => {
         <Button Svg={CardIcon}>Dar cartas</Button>
       </div>
 
-      {playersOpen && <Players setPlayersOpen={setPlayersOpen} />}
+      <Players setPlayersOpen={setPlayersOpen} playersOpen={playersOpen} />
     </div>
   );
 };
