@@ -5,9 +5,9 @@ import Button from "../Helpers/Button";
 import { ReactComponent as Thumb } from "../../imgs/thumbs-up-solid.svg";
 import { ReactComponent as Plus } from "../../imgs/plus-solid.svg";
 
-const Players = () => {
+const Players = ({}) => {
   return (
-    <section className={styles.players}>
+    <section className={`${styles.players}`}>
       <Title margin={"0 0 10px 0"}>JOGADORES</Title>
       <Player />
       <Player />
