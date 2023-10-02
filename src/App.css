@@ -4,7 +4,7 @@
   --primary-color: #65a15b;
   --secondary-color: #000;
   --tertiary-color: #fff;
-  --tertiary-color-30: rgba(255, 255, 255, 03);
+  --tertiary-color-30: rgba(255, 255, 255, 0.3);
   --quaternary-color: #eb4141;
 }
 

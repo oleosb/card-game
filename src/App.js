@@ -6,7 +6,7 @@ const App = () => {
   return (
     <>
       <Table />
-      {/* <Players /> */}
+      <Players />
     </>
   );
 };

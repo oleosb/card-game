@@ -1,19 +1,25 @@
 import styles from "./Player.module.css";
-import Card from "../../imgs/card-back.jpg";
+import Card from "../../imgs/card.png";
 
 const Player = () => {
   return (
     <div className={styles.player}>
-      <div className={styles.top}>
+      <div className={styles.left}>
         <input type="text" placeholder="Nome" />
-        <div className={styles.playerCards}>
-          <img src={Card} alt="Card" />
-          <img src={Card} alt="Card" />
+        <div className={styles.scores}>
+          <div>
+            Castigos: <span>01</span>
+          </div>
+          <div>
+            Mandos: <span>02</span>
+          </div>
         </div>
       </div>
-      <div className={styles.bottom}>
-        <div>Castigos: 01</div>
-        <div>Mandos: 01</div>
+      <div className={styles.right}>
+        <div>
+          <img src={Card} alt="Card" />
+        </div>
+        <div></div>
       </div>
     </div>
   );

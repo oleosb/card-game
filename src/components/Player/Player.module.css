@@ -1,56 +1,67 @@
 .player {
+  border: 1px solid var(--tertiary-color);
   width: 100%;
-  border: 1px solid #000;
-  padding: 5%;
+  color: var(--tertiary-color);
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
 }
 
-.player .top,
-.player .bottom {
+.left {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+}
+
+.left input {
+  background: none;
+  border: none;
+  border-bottom: 1px solid var(--tertiary-color-30);
+  color: var(--tertiary-color);
+  padding: 2px 5px;
+  transition: border 0.2s ease;
+  font-size: 14px;
+  width: 170px;
+}
+
+.left input:focus {
+  outline: none;
+  border-bottom: 1px solid var(--tertiary-color);
+}
+
+.left input::placeholder {
+  color: var(--tertiary-color-30);
+}
+
+.scores {
+  display: flex;
+  font-size: 12px;
+  gap: 10px;
+}
+
+.right {
+  display: grid;
+  gap: 5px;
+  grid-template-columns: 1fr 1fr;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  height: 60px;
+}
+
+.right > div {
+  height: 100%;
+  width: 41.91px;
+  border: 1px solid var(--tertiary-color-30);
   display: flex;
   align-items: center;
+  justify-content: center;
 }
 
-.player .top {
-  gap: 20px;
-  justify-content: space-between;
-}
-
-.player .top input {
-  background: transparent;
-  border: none;
-  border-bottom: 1px solid #000;
-  padding: 0 5px;
-  font-size: 14px;
-  width: 200px;
-}
-
-.player .top input:focus {
-  outline: none;
-}
-
-.playerCards {
-  overflow: hidden;
-  position: relative;
+.right > div > img {
   width: 100%;
-  height: 25px;
-}
-
-.playerCards img {
-  height: 50px;
-  position: absolute;
-  top: 0;
-  transform: translateX(-50%);
-}
-
-.playerCards img:nth-child(1) {
-  left: 50%;
-}
-.playerCards img:nth-child(2) {
-  left: 70%;
-}
-
-.player .bottom {
-  margin: 10px 0 0 0;
-  font-size: 13px;
-  gap: 10px;
+  height: 100%;
 }

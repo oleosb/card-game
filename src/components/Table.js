@@ -90,7 +90,7 @@ const Table = () => {
                 let columns = [];
                 for (let j = 1; j <= 2 * n - 1; j++) {
                   if (j >= n - (i - 1) && j <= n + (i - 1)) {
-                    columns.push(<Card key={j} />);
+                    columns.push(<Card key={j}  />);
                     cardC.push("+1");
                   }
                 }
