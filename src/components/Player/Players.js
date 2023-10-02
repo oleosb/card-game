@@ -2,6 +2,8 @@ import Player from "./Player";
 import styles from "./Players.module.css";
 import Plus from "../../imgs/plus-solid.svg";
 import Title from "../Helpers/Title";
+import Button from "../Helpers/Button";
+import { ReactComponent as Thumb } from "../../imgs/thumbs-up-solid.svg";
 
 const Players = () => {
   return (
@@ -13,6 +15,9 @@ const Players = () => {
       <button className={styles.addPlayer}>
         <img src={Plus} alt="Adicionar jogador" />
       </button>
+      <Button Svg={Thumb} dark={true}>
+        Ok!
+      </Button>
     </section>
   );
 };
