@@ -1,6 +1,6 @@
 import styles from "./Table.module.css";
 import Card from "./Card";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import useFetch from "../Hooks/useFetch";
 import { GET_CARDS } from "../api";
 import Button from "../components/Helpers/Button";
@@ -8,8 +8,11 @@ import { ReactComponent as CardIcon } from "../imgs/cardIcon.svg";
 import { ReactComponent as UserPlus } from "../imgs/user-plus.svg";
 import { ReactComponent as Info } from "../imgs/circle-info-solid.svg";
 import { ReactComponent as Users } from "../imgs/users-solid.svg";
+import Players from "./Player/Players";
 
 const Table = () => {
+  const [playersOpen, setPlayersOpen] = useState(false);
+
   const { request } = useFetch();
 
   useEffect(() => {
@@ -75,7 +78,6 @@ const Table = () => {
   return (
     <div className={styles.table}>
       <div className={styles.header}>
-        <Button Svg={Users}>Ver jogadores</Button>
         <Button Svg={Info}>Como jogar</Button>
       </div>
       {(() => {
@@ -90,7 +92,7 @@ const Table = () => {
                 let columns = [];
                 for (let j = 1; j <= 2 * n - 1; j++) {
                   if (j >= n - (i - 1) && j <= n + (i - 1)) {
-                    columns.push(<Card key={j}  />);
+                    columns.push(<Card key={j} />);
                     cardC.push("+1");
                   }
                 }
@@ -103,9 +105,13 @@ const Table = () => {
       })()}
 
       <div className={styles.footer}>
-        <Button Svg={UserPlus}>Adicionar jogador</Button>
+        <Button Svg={UserPlus} onClick={() => setPlayersOpen(true)}>
+          Adicionar jogador
+        </Button>
         <Button Svg={CardIcon}>Dar cartas</Button>
       </div>
+
+      {playersOpen && <Players setPlayersOpen={setPlayersOpen} />}
     </div>
   );
 };

@@ -5,7 +5,7 @@ import Button from "../Helpers/Button";
 import { ReactComponent as Thumb } from "../../imgs/thumbs-up-solid.svg";
 import { ReactComponent as Plus } from "../../imgs/plus-solid.svg";
 
-const Players = ({}) => {
+const Players = ({ setPlayersOpen }) => {
   return (
     <section className={`${styles.players}`}>
       <Title margin={"0 0 10px 0"}>JOGADORES</Title>
@@ -16,7 +16,7 @@ const Players = ({}) => {
         <Button Svg={Plus} dark={true}>
           Adicionar
         </Button>
-        <Button Svg={Thumb} dark={true}>
+        <Button Svg={Thumb} dark={true} onClick={() => setPlayersOpen(false)}>
           Ok
         </Button>
       </footer>

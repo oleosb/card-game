@@ -1,8 +1,11 @@
 import styles from "./Button.module.css";
 
-const Button = ({ children, Svg, dark }) => {
+const Button = ({ children, Svg, dark, ...props }) => {
   return (
-    <button className={`${styles.button} ${dark ? styles.dark : styles.light}`}>
+    <button
+      {...props}
+      className={`${styles.button} ${dark ? styles.dark : styles.light}`}
+    >
       <Svg />
       {children}
     </button>

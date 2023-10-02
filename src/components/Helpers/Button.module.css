@@ -39,6 +39,7 @@
 
 .button.light {
   border: 1px solid #000;
+  color: var(--secondary-color);
 }
 
 .button.light:hover {
@@ -52,4 +53,8 @@
 
 .button.light:hover svg * {
   fill: var(--primary-color);
+}
+
+.button:disabled {
+  cursor: wait;
 }
