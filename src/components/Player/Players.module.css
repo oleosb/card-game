@@ -10,7 +10,7 @@
   align-items: center;
   flex-direction: column;
   gap: 10px;
-  transition: left .3s ease;
+  transition: left 0.3s ease;
 }
 
 .players.open {
@@ -21,10 +21,30 @@
   left: -100%;
 }
 
-footer {
-  margin: 20px 0 0 0;
+.players form {
   width: 100%;
   display: flex;
-  justify-content: space-evenly;
   align-items: center;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.players input {
+  background: none;
+  border: none;
+  border-bottom: 1px solid var(--tertiary-color-30);
+  color: var(--tertiary-color);
+  padding: 2px 5px;
+  transition: border 0.2s ease;
+  font-size: 14px;
+  width: 80%;
+}
+
+.players input:focus {
+  outline: none;
+  border-bottom: 1px solid var(--tertiary-color);
+}
+
+.players input::placeholder {
+  color: var(--tertiary-color-30);
 }

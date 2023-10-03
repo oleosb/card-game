@@ -5,7 +5,7 @@ const Player = () => {
   return (
     <div className={styles.player}>
       <div className={styles.left}>
-        <input type="text" placeholder="Nome" />
+        <div className={styles.name}>Nome</div>
         <div className={styles.scores}>
           <div>
             Castigos: <span>01</span>

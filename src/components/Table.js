@@ -14,8 +14,9 @@ import Error from "./Helpers/Error";
 const Table = () => {
   const [playersOpen, setPlayersOpen] = useState(false);
   const { players } = useContext(Context);
+  const [error, setError] = useState(false);
 
-  console.log(players);
+  //console.log(players.length, error);
 
   const { request } = useFetch();
 
@@ -26,6 +27,16 @@ const Table = () => {
     }
     getData();
   }, [request]);
+
+  function fetchCards() {
+    if (players.length < 2) {
+      setError(true)
+      setTimeout(() => setError(false), 2000);
+    } else {
+      setError(false);
+      console.log(players);
+    }
+  }
 
   /*
   const endPoint = `https://www.deckofcardsapi.com/api/deck/new/draw/?count=${36}`;
@@ -112,11 +123,13 @@ const Table = () => {
         <Button Svg={UserPlus} onClick={() => setPlayersOpen(true)}>
           Adicionar jogador
         </Button>
-        <Button Svg={CardIcon}>Dar cartas</Button>
+        <Button Svg={CardIcon} onClick={() => fetchCards()}>
+          Dar cartas
+        </Button>
       </div>
 
       <Players setPlayersOpen={setPlayersOpen} playersOpen={playersOpen} />
-      <Error />
+      <Error error={error} />
     </div>
   );
 };

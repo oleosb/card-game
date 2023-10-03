@@ -1,9 +1,10 @@
 import styles from "./Button.module.css";
 
-const Button = ({ children, Svg, dark, ...props }) => {
+const Button = ({ children, margin, Svg, dark, ...props }) => {
   return (
     <button
       {...props}
+      style={{ margin: margin }}
       className={`${styles.button} ${dark ? styles.dark : styles.light}`}
     >
       <Svg />

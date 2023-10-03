@@ -16,24 +16,13 @@
   height: 100%;
 }
 
-.left input {
+.left .name {
   background: none;
-  border: none;
   border-bottom: 1px solid var(--tertiary-color-30);
   color: var(--tertiary-color);
   padding: 2px 5px;
-  transition: border 0.2s ease;
   font-size: 14px;
   width: 170px;
-}
-
-.left input:focus {
-  outline: none;
-  border-bottom: 1px solid var(--tertiary-color);
-}
-
-.left input::placeholder {
-  color: var(--tertiary-color-30);
 }
 
 .scores {

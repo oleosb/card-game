@@ -1,14 +1,30 @@
 import React, { useState } from "react";
+import { nanoid } from "nanoid";
 
 export const Context = React.createContext();
 
 const GameStorage = ({ children }) => {
-  const [tableDeck, setTableDeck] = useState("nulssl");
-  const [playersDeck, setPlayersDeck] = useState(null);
-  const [players, setPlayers] = useState([{ nome: "Leo", cards: ["K", "J"] }]);
+  const [players, setPlayers] = useState("");
+
+  const addPlayer = (name) => {
+    if (name) {
+      console.log("name");
+      const newPlayer = {
+        id: nanoid(),
+        name: name,
+        cards: [],
+      };
+
+      if (players === "") {
+        setPlayers([newPlayer]);
+      } else {
+        setPlayers([...players, newPlayer]);
+      }
+    }
+  };
 
   return (
-    <Context.Provider value={{ tableDeck, players }}>
+    <Context.Provider value={{ players, addPlayer }}>
       {children}
     </Context.Provider>
   );

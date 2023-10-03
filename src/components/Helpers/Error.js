@@ -1,9 +1,9 @@
 import React from "react";
-import styles from './Error.module.css'
+import styles from "./Error.module.css";
 
-const Error = () => {
+const Error = ({ error }) => {
   return (
-    <section className={styles.error}>
+    <section className={`${styles.error} ${error ? styles.true : ""}`}>
       <p>ADICIONE NO MÍNIMO 2 JOGADORES</p>
     </section>
   );
