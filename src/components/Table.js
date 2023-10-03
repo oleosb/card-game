@@ -7,7 +7,6 @@ import Button from "../components/Helpers/Button";
 import { ReactComponent as CardIcon } from "../imgs/cardIcon.svg";
 import { ReactComponent as UserPlus } from "../imgs/user-plus.svg";
 import { ReactComponent as Info } from "../imgs/circle-info-solid.svg";
-import { ReactComponent as Users } from "../imgs/users-solid.svg";
 import Players from "./Player/Players";
 
 const Table = () => {
