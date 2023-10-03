@@ -1,6 +1,6 @@
 import styles from "./Table.module.css";
 import Card from "./Card";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import useFetch from "../Hooks/useFetch";
 import { GET_CARDS } from "../api";
 import Button from "../components/Helpers/Button";
@@ -8,9 +8,14 @@ import { ReactComponent as CardIcon } from "../imgs/cardIcon.svg";
 import { ReactComponent as UserPlus } from "../imgs/user-plus.svg";
 import { ReactComponent as Info } from "../imgs/circle-info-solid.svg";
 import Players from "./Player/Players";
+import { Context } from "../Context";
+import Error from "./Helpers/Error";
 
 const Table = () => {
   const [playersOpen, setPlayersOpen] = useState(false);
+  const { players } = useContext(Context);
+
+  console.log(players);
 
   const { request } = useFetch();
 
@@ -111,6 +116,7 @@ const Table = () => {
       </div>
 
       <Players setPlayersOpen={setPlayersOpen} playersOpen={playersOpen} />
+      <Error />
     </div>
   );
 };
