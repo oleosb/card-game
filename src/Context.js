@@ -13,6 +13,8 @@ const GameStorage = ({ children }) => {
         id: nanoid(),
         name: name,
         cards: [],
+        mandos: 0,
+        castigos: 0,
       };
 
       if (players === "") {

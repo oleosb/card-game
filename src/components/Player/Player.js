@@ -1,17 +1,17 @@
 import styles from "./Player.module.css";
 import Card from "../../imgs/card.png";
 
-const Player = () => {
+const Player = ({ name, cards, mandos, castigos }) => {
   return (
     <div className={styles.player}>
       <div className={styles.left}>
-        <div className={styles.name}>Nome</div>
+        <div className={styles.name}>{name}</div>
         <div className={styles.scores}>
           <div>
-            Castigos: <span>01</span>
+            Castigos: <span>{castigos}</span>
           </div>
           <div>
-            Mandos: <span>02</span>
+            Mandos: <span>{mandos}</span>
           </div>
         </div>
       </div>

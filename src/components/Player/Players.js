@@ -8,7 +8,7 @@ import { useContext, useState } from "react";
 import { Context } from "../../Context";
 
 const Players = ({ setPlayersOpen, playersOpen }) => {
-  const { addPlayer } = useContext(Context);
+  const { addPlayer, players } = useContext(Context);
   const [name, setName] = useState("");
 
   const handleFormSubmit = (e) => {
@@ -36,9 +36,10 @@ const Players = ({ setPlayersOpen, playersOpen }) => {
         </Button>
       </form>
       <Title margin={"20px 0 0 0"}>JOGADORES</Title>
-      <Player />
-      <Player />
-      <Player />
+
+      {players &&
+        players.map((player, idx) => <Player {...player} key={idx} />)}
+
       <Button
         Svg={Thumb}
         dark={true}
