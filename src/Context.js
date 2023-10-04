@@ -3,8 +3,41 @@ import { nanoid } from "nanoid";
 export const Context = React.createContext();
 
 const GameStorage = ({ children }) => {
-  const [players, setPlayers] = useState("");
+  const [players, setPlayers] = useState([
+    {
+      id: nanoid(),
+      name: "teste",
+      cards: [
+        { code: "7", src: "cards[0].image" },
+        { code: "QUEEN", src: "cards[1].image" },
+      ],
+      mandos: 0,
+      castigos: 0,
+    },
+    {
+      id: nanoid(),
+      name: "teste2",
+      cards: [
+        { code: "QUEEN", src: "cards[0].image" },
+        { code: "QUEEN", src: "cards[1].image" },
+      ],
+      mandos: 0,
+      castigos: 0,
+    },
+  ]);
   const [tableDeck, setTableDeck] = useState("");
+
+  const verifyCards = (tableCard) => {
+    let playersCopy = players;
+    playersCopy.forEach((player) =>
+      player.cards.forEach((card) => {
+        if (card.code === tableCard) {
+          player.castigos++;
+          console.log(player);
+        }
+      })
+    );
+  };
 
   const fetchTableDeck = () => {
     fetch("https://www.deckofcardsapi.com/api/deck/new/draw/?count=25", {
@@ -43,7 +76,9 @@ const GameStorage = ({ children }) => {
   };
 
   return (
-    <Context.Provider value={{ players, addPlayer, fetchTableDeck, tableDeck }}>
+    <Context.Provider
+      value={{ players, addPlayer, fetchTableDeck, tableDeck, verifyCards }}
+    >
       {children}
     </Context.Provider>
   );

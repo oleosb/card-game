@@ -3,7 +3,7 @@ import styles from "./Card.module.css";
 import { Context } from "../Context";
 
 const Card = ({ cardC }) => {
-  const { tableDeck } = useContext(Context);
+  const { tableDeck, verifyCards } = useContext(Context);
 
   const cardRef = useRef(null);
 
@@ -12,6 +12,7 @@ const Card = ({ cardC }) => {
       return false;
     } else {
       cardRef.current.setAttribute("fliped", true);
+      verifyCards(cardRef.current.getAttribute("data"));
     }
   };
 
@@ -19,7 +20,7 @@ const Card = ({ cardC }) => {
     <div
       className={styles.cardContainer}
       data={tableDeck ? tableDeck[cardC].value : ""}
-      ref={cardRef}
+      ref={tableDeck ? cardRef : null}
       onClick={() => handleClick()}
     >
       <div className={`${styles.card} `}>
