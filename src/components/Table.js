@@ -5,13 +5,14 @@ import Button from "../components/Helpers/Button";
 import { ReactComponent as CardIcon } from "../imgs/cardIcon.svg";
 import { ReactComponent as UserPlus } from "../imgs/user-plus.svg";
 import { ReactComponent as Info } from "../imgs/circle-info-solid.svg";
+import { ReactComponent as Reset } from "../imgs/reset.svg";
 import Players from "./Player/Players";
 import { Context } from "../Context";
 import Error from "./Helpers/Error";
 
 const Table = () => {
   const [playersOpen, setPlayersOpen] = useState(false);
-  const { players, fetchTableDeck } = useContext(Context);
+  const { players, fetchTableDeck, tableDeck } = useContext(Context);
   const [error, setError] = useState(false);
 
   function fetchCardsValidation() {
@@ -57,9 +58,12 @@ const Table = () => {
         <Button Svg={UserPlus} onClick={() => setPlayersOpen(true)}>
           Adicionar jogador
         </Button>
-        <Button Svg={CardIcon} onClick={() => fetchCardsValidation()}>
-          Dar cartas
-        </Button>
+        {!tableDeck && (
+          <Button Svg={CardIcon} onClick={() => fetchCardsValidation()}>
+            Dar cartas
+          </Button>
+        )}
+        {tableDeck && <Button Svg={Reset}>Resetar</Button>}
       </div>
 
       <Players setPlayersOpen={setPlayersOpen} playersOpen={playersOpen} />
