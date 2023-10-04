@@ -4,16 +4,32 @@ import Title from "../Helpers/Title";
 import Button from "../Helpers/Button";
 import { ReactComponent as Thumb } from "../../imgs/thumbs-up-solid.svg";
 import { ReactComponent as Plus } from "../../imgs/plus-solid.svg";
-import { useContext, useState } from "react";
+import { useCallback, useContext, useState } from "react";
 import { Context } from "../../Context";
+import useFetch from "../../Hooks/useFetch";
+import { json } from "react-router-dom";
 
 const Players = ({ setPlayersOpen, playersOpen }) => {
-  const { addPlayer, players } = useContext(Context);
+  const { addPlayer, players, getData } = useContext(Context);
   const [name, setName] = useState("");
+  const { data } = useFetch();
 
   const handleFormSubmit = (e) => {
     e.preventDefault();
-    addPlayer(name);
+    let cards;
+
+    fetch("https://www.deckofcardsapi.com/api/deck/new/draw/?count=2", {
+      method: "GET",
+      headers: {
+        "Content-Type": "aplication/json",
+      },
+    })
+      .then((response) => {
+        return response.json();
+      })
+      .then((json) => {
+        addPlayer(name, json.cards);
+      });
     setName("");
   };
 

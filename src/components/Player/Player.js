@@ -17,9 +17,11 @@ const Player = ({ name, cards, mandos, castigos }) => {
       </div>
       <div className={styles.right}>
         <div>
-          <img src={Card} alt="Card" />
+          <img src={cards[0].src} alt="Card" />
         </div>
-        <div></div>
+        <div>
+          <img src={cards[1].src} alt="Card" />
+        </div>
       </div>
     </div>
   );

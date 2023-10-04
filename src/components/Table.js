@@ -1,8 +1,6 @@
 import styles from "./Table.module.css";
 import Card from "./Card";
-import { useContext, useEffect, useState } from "react";
-import useFetch from "../Hooks/useFetch";
-import { GET_CARDS } from "../api";
+import { useContext, useState } from "react";
 import Button from "../components/Helpers/Button";
 import { ReactComponent as CardIcon } from "../imgs/cardIcon.svg";
 import { ReactComponent as UserPlus } from "../imgs/user-plus.svg";
@@ -16,25 +14,12 @@ const Table = () => {
   const { players } = useContext(Context);
   const [error, setError] = useState(false);
 
-  //console.log(players.length, error);
-
-  const { request } = useFetch();
-
-  useEffect(() => {
-    async function getData() {
-      const { url, options } = GET_CARDS(36);
-      await request(url, options);
-    }
-    getData();
-  }, [request]);
-
-  function fetchCards() {
+  function fetchCardsValidation() {
     if (players.length < 2) {
       setError(true);
       setTimeout(() => setError(false), 2000);
     } else {
       setError(false);
-      console.log(players);
     }
   }
 
@@ -71,7 +56,7 @@ const Table = () => {
         <Button Svg={UserPlus} onClick={() => setPlayersOpen(true)}>
           Adicionar jogador
         </Button>
-        <Button Svg={CardIcon} onClick={() => fetchCards()}>
+        <Button Svg={CardIcon} onClick={() => fetchCardsValidation()}>
           Dar cartas
         </Button>
       </div>
