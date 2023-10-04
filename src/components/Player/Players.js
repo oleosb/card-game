@@ -10,13 +10,12 @@ import useFetch from "../../Hooks/useFetch";
 import { json } from "react-router-dom";
 
 const Players = ({ setPlayersOpen, playersOpen }) => {
-  const { addPlayer, players, getData } = useContext(Context);
+  const { addPlayer, players, tableDeck } = useContext(Context);
   const [name, setName] = useState("");
   const { data } = useFetch();
 
   const handleFormSubmit = (e) => {
     e.preventDefault();
-    let cards;
 
     fetch("https://www.deckofcardsapi.com/api/deck/new/draw/?count=2", {
       method: "GET",
@@ -66,6 +65,8 @@ const Players = ({ setPlayersOpen, playersOpen }) => {
           Ok
         </Button>
       )}
+
+      {tableDeck && "aaa"}
     </section>
   );
 };

@@ -11,7 +11,7 @@ import Error from "./Helpers/Error";
 
 const Table = () => {
   const [playersOpen, setPlayersOpen] = useState(false);
-  const { players } = useContext(Context);
+  const { players, tableDeck, fetchTableDeck } = useContext(Context);
   const [error, setError] = useState(false);
 
   function fetchCardsValidation() {
@@ -20,6 +20,7 @@ const Table = () => {
       setTimeout(() => setError(false), 2000);
     } else {
       setError(false);
+      fetchTableDeck();
     }
   }
 
@@ -35,13 +36,13 @@ const Table = () => {
 
         for (let i = 1; i <= n; i++) {
           rows.push(
-            <div key={i} data="row">
+            <div key={i}>
               {(() => {
                 let columns = [];
                 for (let j = 1; j <= 2 * n - 1; j++) {
                   if (j >= n - (i - 1) && j <= n + (i - 1)) {
-                    columns.push(<Card key={j} />);
                     cardC.push("+1");
+                    columns.push(<Card key={j} cardC={cardC.length - 1} />);
                   }
                 }
                 return columns;

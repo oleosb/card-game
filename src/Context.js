@@ -11,10 +11,25 @@ const GameStorage = ({ children }) => {
     const { url, options } = GET_CARDS(cardsNumber);
     await request(url, options);
   }
-
   const { request } = useFetch();
 
   const [players, setPlayers] = useState("");
+  const [tableDeck, setTableDeck] = useState("");
+
+  const fetchTableDeck = () => {
+    fetch("https://www.deckofcardsapi.com/api/deck/new/draw/?count=25", {
+      method: "GET",
+      headers: {
+        "Content-Type": "aplication/json",
+      },
+    })
+      .then((response) => {
+        return response.json();
+      })
+      .then((json) => {
+        setTableDeck(json.cards);
+      });
+  };
 
   const addPlayer = (name, cards) => {
     if (name) {
@@ -38,7 +53,9 @@ const GameStorage = ({ children }) => {
   };
 
   return (
-    <Context.Provider value={{ players, addPlayer, getData }}>
+    <Context.Provider
+      value={{ players, addPlayer, getData, fetchTableDeck, tableDeck }}
+    >
       {children}
     </Context.Provider>
   );
