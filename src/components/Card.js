@@ -1,10 +1,9 @@
-import { useContext, useRef, useState } from "react";
+import { useContext, useRef } from "react";
 import styles from "./Card.module.css";
 import { Context } from "../Context";
 
 const Card = ({ cardC }) => {
   const { tableDeck } = useContext(Context);
-  const [fliped, setFliped] = useState(false);
 
   const cardRef = useRef(null);
 

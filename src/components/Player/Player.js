@@ -1,5 +1,4 @@
 import styles from "./Player.module.css";
-import Card from "../../imgs/card.png";
 
 const Player = ({ name, cards, mandos, castigos }) => {
   return (

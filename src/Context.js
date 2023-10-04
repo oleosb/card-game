@@ -1,18 +1,8 @@
 import React, { useState } from "react";
 import { nanoid } from "nanoid";
-import useFetch from "./Hooks/useFetch";
-
-import { GET_CARDS } from "./api";
-
 export const Context = React.createContext();
 
 const GameStorage = ({ children }) => {
-  async function getData(cardsNumber) {
-    const { url, options } = GET_CARDS(cardsNumber);
-    await request(url, options);
-  }
-  const { request } = useFetch();
-
   const [players, setPlayers] = useState("");
   const [tableDeck, setTableDeck] = useState("");
 
@@ -53,9 +43,7 @@ const GameStorage = ({ children }) => {
   };
 
   return (
-    <Context.Provider
-      value={{ players, addPlayer, getData, fetchTableDeck, tableDeck }}
-    >
+    <Context.Provider value={{ players, addPlayer, fetchTableDeck, tableDeck }}>
       {children}
     </Context.Provider>
   );

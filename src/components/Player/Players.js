@@ -4,15 +4,12 @@ import Title from "../Helpers/Title";
 import Button from "../Helpers/Button";
 import { ReactComponent as Thumb } from "../../imgs/thumbs-up-solid.svg";
 import { ReactComponent as Plus } from "../../imgs/plus-solid.svg";
-import { useCallback, useContext, useState } from "react";
+import { useContext, useState } from "react";
 import { Context } from "../../Context";
-import useFetch from "../../Hooks/useFetch";
-import { json } from "react-router-dom";
 
 const Players = ({ setPlayersOpen, playersOpen }) => {
   const { addPlayer, players, tableDeck } = useContext(Context);
   const [name, setName] = useState("");
-  const { data } = useFetch();
 
   const handleFormSubmit = (e) => {
     e.preventDefault();
