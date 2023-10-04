@@ -11,7 +11,7 @@ import Error from "./Helpers/Error";
 
 const Table = () => {
   const [playersOpen, setPlayersOpen] = useState(false);
-  const { players, tableDeck, fetchTableDeck } = useContext(Context);
+  const { players, fetchTableDeck } = useContext(Context);
   const [error, setError] = useState(false);
 
   function fetchCardsValidation() {
