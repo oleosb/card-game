@@ -51,19 +51,21 @@ const Players = ({ setPlayersOpen, playersOpen }) => {
           Adicionar
         </Button>
       </form>
-      <Title margin={"20px 0 0 0"}>JOGADORES</Title>
+      {players && <Title margin={"20px 0 0 0"}>JOGADORES</Title>}
 
       {players &&
         players.map((player, idx) => <Player {...player} key={idx} />)}
 
-      <Button
-        Svg={Thumb}
-        dark={true}
-        onClick={() => setPlayersOpen(false)}
-        margin={"20px 0 0 0"}
-      >
-        Ok
-      </Button>
+      {players && (
+        <Button
+          Svg={Thumb}
+          dark={true}
+          onClick={() => setPlayersOpen(false)}
+          margin={"20px 0 0 0"}
+        >
+          Ok
+        </Button>
+      )}
     </section>
   );
 };
