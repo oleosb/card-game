@@ -24,19 +24,57 @@ const GameStorage = ({ children }) => {
       mandos: 0,
       castigos: 0,
     },
+    {
+      id: nanoid(),
+      name: "teste3",
+      cards: [
+        { code: "QUEEN", src: "cards[0].image" },
+        { code: "ACE", src: "cards[1].image" },
+      ],
+      mandos: 0,
+      castigos: 0,
+    },
   ]);
   const [tableDeck, setTableDeck] = useState("");
+  const [currentRoundData, setCurrentRoundData] = useState("");
 
   const verifyCards = (tableCard) => {
-    let playersCopy = players;
-    playersCopy.forEach((player) =>
+    let playersCopy = [...players];
+    let roundData = [];
+    playersCopy.forEach((player) => {
+      let castigo = 0;
+
       player.cards.forEach((card) => {
         if (card.code === tableCard) {
+          castigo++;
           player.castigos++;
-          console.log(player);
+          console.log(castigo);
+
+          if (castigo > 1) {
+            roundData.forEach((obj) => {
+              if (obj.player === player.id) {
+                obj.castigo++;
+                console.log("ja tem", roundData);
+              }
+            });
+          } else {
+            roundData.push({ player: player.id, castigo: castigo });
+          }
+
+          /*roundData.forEach((obj) => {
+            if (obj.player === player.id) {
+              obj.castigo++;
+              //console.log("if", roundData);
+            } else {
+              roundData.push({ player: player.id, castigo: castigo });
+              //console.log("else", roundData);
+            }
+          })*/
+
+          setPlayers(playersCopy);
         }
-      })
-    );
+      });
+    });
   };
 
   const fetchTableDeck = () => {

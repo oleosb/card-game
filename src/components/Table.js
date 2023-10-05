@@ -37,7 +37,7 @@ const Table = () => {
 
         for (let i = 1; i <= n; i++) {
           rows.push(
-            <div key={i}>
+            <div key={i} data={i}>
               {(() => {
                 let columns = [];
                 for (let j = 1; j <= 2 * n - 1; j++) {
