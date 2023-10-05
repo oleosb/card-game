@@ -60,17 +60,7 @@ const GameStorage = ({ children }) => {
           } else {
             roundData.push({ player: player.id, castigo: castigo });
           }
-
-          /*roundData.forEach((obj) => {
-            if (obj.player === player.id) {
-              obj.castigo++;
-              //console.log("if", roundData);
-            } else {
-              roundData.push({ player: player.id, castigo: castigo });
-              //console.log("else", roundData);
-            }
-          })*/
-
+          setCurrentRoundData(roundData);
           setPlayers(playersCopy);
         }
       });
@@ -115,7 +105,14 @@ const GameStorage = ({ children }) => {
 
   return (
     <Context.Provider
-      value={{ players, addPlayer, fetchTableDeck, tableDeck, verifyCards }}
+      value={{
+        players,
+        addPlayer,
+        fetchTableDeck,
+        tableDeck,
+        verifyCards,
+        currentRoundData,
+      }}
     >
       {children}
     </Context.Provider>
