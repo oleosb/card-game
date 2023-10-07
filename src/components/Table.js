@@ -28,7 +28,7 @@ const Table = () => {
 
   return (
     <div className={styles.table}>
-      <PayModal />
+      {/* <PayModal /> */}
       <div className={styles.header}>
         <Button Svg={Info}>Como jogar</Button>
       </div>
