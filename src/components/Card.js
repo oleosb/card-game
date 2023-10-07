@@ -12,8 +12,13 @@ const Card = ({ cardC }) => {
       if (cardRef.current.getAttribute("fliped")) {
         return false;
       } else {
-        cardRef.current.setAttribute("fliped", true);
-        verifyCards(cardRef.current.getAttribute("data"));
+        if (
+          cardRef.current.previousElementSibling === null ||
+          cardRef.current.previousElementSibling.getAttribute("fliped")
+        ) {
+          cardRef.current.setAttribute("fliped", true);
+          verifyCards(cardRef.current.getAttribute("data"));
+        }
       }
     }
   };
@@ -25,7 +30,7 @@ const Card = ({ cardC }) => {
       ref={tableDeck ? cardRef : null}
       onClick={() => handleClick()}
     >
-      <div className={`${styles.card} `}>
+      <div className={`${styles.card}`}>
         {/* <div className={styles.backCard}></div>
         <img
           className={`${styles.frontCard} ${styles.hidden}`}

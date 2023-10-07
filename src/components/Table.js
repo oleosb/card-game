@@ -1,6 +1,6 @@
 import styles from "./Table.module.css";
 import Card from "./Card";
-import { useContext, useState } from "react";
+import { useContext, useRef, useState } from "react";
 import Button from "../components/Helpers/Button";
 import { ReactComponent as CardIcon } from "../imgs/cardIcon.svg";
 import { ReactComponent as UserPlus } from "../imgs/user-plus.svg";
@@ -13,13 +13,10 @@ import PayModal from "./PayModal";
 
 const Table = () => {
   const [playersOpen, setPlayersOpen] = useState(false);
-  const {
-    players,
-    fetchTableDeck,
-    tableDeck,
-    currentRoundData,
-  } = useContext(Context);
+  const { players, fetchTableDeck, tableDeck, currentRoundData } =
+    useContext(Context);
   const [error, setError] = useState(false);
+  const rowRef = useRef(null);
 
   function fetchCardsValidation() {
     if (players.length < 2) {
@@ -44,7 +41,15 @@ const Table = () => {
 
         for (let i = 1; i <= n; i++) {
           rows.push(
-            <div key={i} data={i}>
+            <div
+              key={i}
+              row="row"
+              data={i}
+              ref={rowRef}
+              onClick={() => {
+                console.log(rowRef.current.previousElementSibling);
+              }}
+            >
               {(() => {
                 let columns = [];
                 for (let j = 1; j <= 2 * n - 1; j++) {
