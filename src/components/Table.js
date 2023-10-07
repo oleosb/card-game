@@ -16,7 +16,7 @@ const Table = () => {
   const { players, fetchTableDeck, tableDeck, currentRoundData } =
     useContext(Context);
   const [error, setError] = useState(false);
-  const rowRef = useRef(null);
+  const pyramidRef = useRef(null);
 
   function fetchCardsValidation() {
     if (players.length < 2) {
@@ -28,13 +28,26 @@ const Table = () => {
     }
   }
 
+  const handleClick = () => {
+    console.log("a");
+    for (let a in pyramidRef.current) {
+      console.log(a);
+    }
+  };
+
   return (
     <div className={styles.table}>
       {currentRoundData && <PayModal />}
       <div className={styles.header}>
         <Button Svg={Info}>Como jogar</Button>
       </div>
-      <div className={styles.pyramid}>
+      <div
+        className={styles.pyramid}
+        ref={pyramidRef}
+        onClick={() => {
+          handleClick();
+        }}
+      >
         {(() => {
           let rows = [];
           let n = 5;
@@ -42,15 +55,7 @@ const Table = () => {
 
           for (let i = 1; i <= n; i++) {
             rows.push(
-              <div
-                key={i}
-                row="row"
-                data={i}
-                ref={rowRef}
-                onClick={() => {
-                  console.log(rowRef.current.previousElementSibling);
-                }}
-              >
+              <div key={i} row={i}>
                 {(() => {
                   let columns = [];
                   for (let j = 1; j <= 2 * n - 1; j++) {
