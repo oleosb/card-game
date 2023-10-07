@@ -39,3 +39,9 @@
 .players > div:nth-of-type(1) {
   border-top: 1px solid var(--tertiary-color-30);
 }
+
+.players > div > span {
+  color: var(--tertiary-color-30);
+  font-size: 8px;
+  font-style: italic;
+}

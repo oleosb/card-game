@@ -13,7 +13,13 @@ import PayModal from "./PayModal";
 
 const Table = () => {
   const [playersOpen, setPlayersOpen] = useState(false);
-  const { players, fetchTableDeck, tableDeck } = useContext(Context);
+  const {
+    players,
+    fetchTableDeck,
+    tableDeck,
+    currentRoundData,
+    setCurrentRoundData,
+  } = useContext(Context);
   const [error, setError] = useState(false);
 
   function fetchCardsValidation() {
@@ -28,7 +34,7 @@ const Table = () => {
 
   return (
     <div className={styles.table}>
-      {/* <PayModal /> */}
+      {currentRoundData && <PayModal />}
       <div className={styles.header}>
         <Button Svg={Info}>Como jogar</Button>
       </div>

@@ -4,36 +4,36 @@ export const Context = React.createContext();
 
 const GameStorage = ({ children }) => {
   const [players, setPlayers] = useState([
-    // {
-    //   id: nanoid(),
-    //   name: "teste",
-    //   cards: [
-    //     { code: "7", src: "cards[0].image" },
-    //     { code: "QUEEN", src: "cards[1].image" },
-    //   ],
-    //   mandos: 0,
-    //   castigos: 0,
-    // },
-    // {
-    //   id: nanoid(),
-    //   name: "teste2",
-    //   cards: [
-    //     { code: "QUEEN", src: "cards[0].image" },
-    //     { code: "QUEEN", src: "cards[1].image" },
-    //   ],
-    //   mandos: 0,
-    //   castigos: 0,
-    // },
-    // {
-    //   id: nanoid(),
-    //   name: "teste3",
-    //   cards: [
-    //     { code: "QUEEN", src: "cards[0].image" },
-    //     { code: "ACE", src: "cards[1].image" },
-    //   ],
-    //   mandos: 0,
-    //   castigos: 0,
-    // },
+    {
+      id: nanoid(),
+      name: "teste",
+      cards: [
+        { code: "7", src: "cards[0].image" },
+        { code: "QUEEN", src: "cards[1].image" },
+      ],
+      mandos: 0,
+      castigos: 0,
+    },
+    {
+      id: nanoid(),
+      name: "teste2",
+      cards: [
+        { code: "QUEEN", src: "cards[0].image" },
+        { code: "QUEEN", src: "cards[1].image" },
+      ],
+      mandos: 0,
+      castigos: 0,
+    },
+    {
+      id: nanoid(),
+      name: "teste3",
+      cards: [
+        { code: "QUEEN", src: "cards[0].image" },
+        { code: "ACE", src: "cards[1].image" },
+      ],
+      mandos: 0,
+      castigos: 0,
+    },
   ]);
   const [tableDeck, setTableDeck] = useState("");
   const [currentRoundData, setCurrentRoundData] = useState("");
@@ -52,13 +52,17 @@ const GameStorage = ({ children }) => {
 
           if (castigo > 1) {
             roundData.forEach((obj) => {
-              if (obj.player === player.id) {
+              if (obj.id === player.id) {
                 obj.castigo++;
                 console.log("ja tem", roundData);
               }
             });
           } else {
-            roundData.push({ player: player.id, castigo: castigo });
+            roundData.push({
+              name: player.name,
+              id: player.id,
+              castigo: castigo,
+            });
           }
           setCurrentRoundData(roundData);
           setPlayers(playersCopy);
@@ -112,6 +116,7 @@ const GameStorage = ({ children }) => {
         tableDeck,
         verifyCards,
         currentRoundData,
+        setCurrentRoundData,
       }}
     >
       {children}
