@@ -34,37 +34,39 @@ const Table = () => {
       <div className={styles.header}>
         <Button Svg={Info}>Como jogar</Button>
       </div>
-      {(() => {
-        let rows = [];
-        let n = 5;
-        let cardC = [];
+      <div className={styles.pyramid}>
+        {(() => {
+          let rows = [];
+          let n = 5;
+          let cardC = [];
 
-        for (let i = 1; i <= n; i++) {
-          rows.push(
-            <div
-              key={i}
-              row="row"
-              data={i}
-              ref={rowRef}
-              onClick={() => {
-                console.log(rowRef.current.previousElementSibling);
-              }}
-            >
-              {(() => {
-                let columns = [];
-                for (let j = 1; j <= 2 * n - 1; j++) {
-                  if (j >= n - (i - 1) && j <= n + (i - 1)) {
-                    cardC.push("+1");
-                    columns.push(<Card key={j} cardC={cardC.length - 1} />);
+          for (let i = 1; i <= n; i++) {
+            rows.push(
+              <div
+                key={i}
+                row="row"
+                data={i}
+                ref={rowRef}
+                onClick={() => {
+                  console.log(rowRef.current.previousElementSibling);
+                }}
+              >
+                {(() => {
+                  let columns = [];
+                  for (let j = 1; j <= 2 * n - 1; j++) {
+                    if (j >= n - (i - 1) && j <= n + (i - 1)) {
+                      cardC.push("+1");
+                      columns.push(<Card key={j} cardC={cardC.length - 1} />);
+                    }
                   }
-                }
-                return columns;
-              })()}
-            </div>
-          );
-        }
-        return rows;
-      })()}
+                  return columns;
+                })()}
+              </div>
+            );
+          }
+          return rows;
+        })()}
+      </div>
 
       <div className={styles.footer}>
         <Button Svg={UserPlus} onClick={() => setPlayersOpen(true)}>

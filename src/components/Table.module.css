@@ -1,17 +1,7 @@
 .table {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 5px;
   width: 100vw;
   height: 100vh;
   position: relative;
-}
-
-.table > * {
-  display: flex;
-  gap: 5px;
 }
 
 .header,
@@ -32,4 +22,19 @@
 .footer {
   bottom: 20px;
   justify-content: space-between;
+}
+
+.pyramid {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+}
+
+.pyramid > * {
+  display: flex;
+  gap: 5px;
 }
