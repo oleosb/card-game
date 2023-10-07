@@ -18,7 +18,6 @@ const Table = () => {
     fetchTableDeck,
     tableDeck,
     currentRoundData,
-    setCurrentRoundData,
   } = useContext(Context);
   const [error, setError] = useState(false);
 

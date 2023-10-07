@@ -48,13 +48,11 @@ const GameStorage = ({ children }) => {
         if (card.code === tableCard) {
           castigo++;
           player.castigos++;
-          console.log(castigo);
 
           if (castigo > 1) {
             roundData.forEach((obj) => {
               if (obj.id === player.id) {
                 obj.castigo++;
-                console.log("ja tem", roundData);
               }
             });
           } else {

@@ -8,11 +8,13 @@ const Card = ({ cardC }) => {
   const cardRef = useRef(null);
 
   const handleClick = () => {
-    if (cardRef.current.getAttribute("fliped")) {
-      return false;
-    } else {
-      cardRef.current.setAttribute("fliped", true);
-      verifyCards(cardRef.current.getAttribute("data"));
+    if (cardRef.current !== null) {
+      if (cardRef.current.getAttribute("fliped")) {
+        return false;
+      } else {
+        cardRef.current.setAttribute("fliped", true);
+        verifyCards(cardRef.current.getAttribute("data"));
+      }
     }
   };
 
