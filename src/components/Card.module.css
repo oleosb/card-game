@@ -3,7 +3,8 @@
   width: 32px;
 }
 
-.cardContainer:hover > .cardvv {
+
+.cardContainer[flipped="true"] > .card {
   transform: rotateY(180deg);
 }
 

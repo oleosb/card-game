@@ -10,9 +10,12 @@ const Card = ({ cardC }) => {
 
   const handleClick = () => {
     if (+cardRef.current.getAttribute("num") === flippedCards) {
-      console.log("FOI:", flippedCards);
-      verifyCards(cardRef.current.getAttribute("data"));
-      setFlippedCards(flippedCards - 1);
+      cardRef.current.setAttribute("flipped", true);
+
+      setTimeout(() => {
+        verifyCards(cardRef.current.getAttribute("data"));
+        setFlippedCards(flippedCards - 1);
+      }, 700);
     }
   };
 
