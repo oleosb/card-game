@@ -28,13 +28,6 @@ const Table = () => {
     }
   }
 
-  const handleClick = () => {
-    console.log("a");
-    for (let a in pyramidRef.current) {
-      console.log(a);
-    }
-  };
-
   return (
     <div className={styles.table}>
       {currentRoundData && <PayModal />}
@@ -44,9 +37,6 @@ const Table = () => {
       <div
         className={styles.pyramid}
         ref={pyramidRef}
-        onClick={() => {
-          handleClick();
-        }}
       >
         {(() => {
           let rows = [];

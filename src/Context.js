@@ -38,6 +38,8 @@ const GameStorage = ({ children }) => {
   const [tableDeck, setTableDeck] = useState("");
   const [currentRoundData, setCurrentRoundData] = useState("");
 
+  const [flippedCards, setFlippedCards] = useState(24);
+
   const verifyCards = (tableCard) => {
     let playersCopy = [...players];
     let roundData = [];
@@ -115,6 +117,8 @@ const GameStorage = ({ children }) => {
         verifyCards,
         currentRoundData,
         setCurrentRoundData,
+        flippedCards,
+        setFlippedCards,
       }}
     >
       {children}

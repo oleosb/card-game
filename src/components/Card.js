@@ -1,25 +1,18 @@
-import { useContext, useRef } from "react";
+import { useContext, useRef, useState } from "react";
 import styles from "./Card.module.css";
 import { Context } from "../Context";
 
 const Card = ({ cardC }) => {
-  const { tableDeck, verifyCards } = useContext(Context);
+  const { tableDeck, verifyCards, flippedCards, setFlippedCards } =
+    useContext(Context);
 
   const cardRef = useRef(null);
 
   const handleClick = () => {
-    if (cardRef.current !== null) {
-      if (cardRef.current.getAttribute("fliped")) {
-        return false;
-      } else {
-        if (
-          cardRef.current.previousElementSibling === null ||
-          cardRef.current.previousElementSibling.getAttribute("fliped")
-        ) {
-          cardRef.current.setAttribute("fliped", true);
-          verifyCards(cardRef.current.getAttribute("data"));
-        }
-      }
+    if (+cardRef.current.getAttribute("num") === flippedCards) {
+      console.log("FOI:", flippedCards);
+      verifyCards(cardRef.current.getAttribute("data"));
+      setFlippedCards(flippedCards - 1);
     }
   };
 
@@ -27,6 +20,7 @@ const Card = ({ cardC }) => {
     <div
       className={styles.cardContainer}
       data={tableDeck ? tableDeck[cardC].value : ""}
+      num={cardC}
       ref={tableDeck ? cardRef : null}
       onClick={() => handleClick()}
     >
