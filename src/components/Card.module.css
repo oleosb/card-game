@@ -3,7 +3,6 @@
   width: 32px;
 }
 
-
 .cardContainer[flipped="true"] > .card {
   transform: rotateY(180deg);
 }
@@ -16,6 +15,7 @@
   transform-style: preserve-3d;
   transition: transform 0.5s;
   border: 1px solid #000;
+  border-radius: 2px;
 }
 
 .frontCard,
@@ -26,15 +26,14 @@
   backface-visibility: hidden;
 }
 
-.hiddencvc {
+.hidden {
   transform: rotateY(180deg);
 }
 
 .backCard {
-  /* background-image: url("../imgs/card-back.jpg");
+  background-image: url("../imgs/back-card.png");
   background-position: center;
-  background-size: contain;
+  background-size: cover;
   background-repeat: no-repeat;
-  border-radius: 5px; */
-  background: #000;
+  border-radius: 1px;
 }
