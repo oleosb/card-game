@@ -10,6 +10,7 @@ import Players from "./Player/Players";
 import { Context } from "../Context";
 import Error from "./Helpers/Error";
 import PayModal from "./Helpers/Modal/PayModal";
+import SendModal from "./Helpers/Modal/SendModal";
 
 const Table = () => {
   const [playersOpen, setPlayersOpen] = useState(false);
@@ -30,6 +31,7 @@ const Table = () => {
 
   return (
     <div className={styles.table}>
+      {/* <SendModal /> */}
       {currentRoundData && <PayModal />}
       <div className={styles.header}>
         <Button Svg={Info}>Como jogar</Button>
