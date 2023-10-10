@@ -9,7 +9,7 @@ import { ReactComponent as Reset } from "../imgs/reset.svg";
 import Players from "./Player/Players";
 import { Context } from "../Context";
 import Error from "./Helpers/Error";
-import PayModal from "./PayModal";
+import PayModal from "./Helpers/Modal/PayModal";
 
 const Table = () => {
   const [playersOpen, setPlayersOpen] = useState(false);
@@ -34,10 +34,7 @@ const Table = () => {
       <div className={styles.header}>
         <Button Svg={Info}>Como jogar</Button>
       </div>
-      <div
-        className={styles.pyramid}
-        ref={pyramidRef}
-      >
+      <div className={styles.pyramid} ref={pyramidRef}>
         {(() => {
           let rows = [];
           let n = 5;
@@ -51,7 +48,9 @@ const Table = () => {
                   for (let j = 1; j <= 2 * n - 1; j++) {
                     if (j >= n - (i - 1) && j <= n + (i - 1)) {
                       cardC.push("+1");
-                      columns.push(<Card key={j} cardC={cardC.length - 1} row={i} />);
+                      columns.push(
+                        <Card key={j} cardC={cardC.length - 1} row={i} />
+                      );
                     }
                   }
                   return columns;

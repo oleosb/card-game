@@ -1,11 +1,11 @@
-import Title from "./Helpers/Title";
+import Title from "../Title";
 import styles from "./PayModal.module.css";
 
-import { ReactComponent as Thumb } from "../imgs/thumbs-up-solid.svg";
-import Button from "./Helpers/Button";
+import { ReactComponent as Thumb } from "../../../imgs/thumbs-up-solid.svg";
+import Button from "../Button";
 
 import React, { useContext } from "react";
-import { Context } from "../Context";
+import { Context } from "../../../Context";
 
 const PayModal = () => {
   const { currentRoundData, setCurrentRoundData } = useContext(Context);
