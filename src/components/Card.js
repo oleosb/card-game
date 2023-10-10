@@ -1,8 +1,8 @@
-import { useContext, useRef, useState } from "react";
+import { useContext, useRef } from "react";
 import styles from "./Card.module.css";
 import { Context } from "../Context";
 
-const Card = ({ cardC }) => {
+const Card = ({ cardC, row }) => {
   const { tableDeck, verifyCards, flippedCards, setFlippedCards } =
     useContext(Context);
 
@@ -26,6 +26,7 @@ const Card = ({ cardC }) => {
       num={cardC}
       ref={tableDeck ? cardRef : null}
       onClick={() => handleClick()}
+      row={row}
     >
       <div className={`${styles.card}`}>
         {tableDeck && <div className={styles.backCard}></div>}

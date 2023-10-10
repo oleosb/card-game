@@ -51,7 +51,7 @@ const Table = () => {
                   for (let j = 1; j <= 2 * n - 1; j++) {
                     if (j >= n - (i - 1) && j <= n + (i - 1)) {
                       cardC.push("+1");
-                      columns.push(<Card key={j} cardC={cardC.length - 1} />);
+                      columns.push(<Card key={j} cardC={cardC.length - 1} row={i} />);
                     }
                   }
                   return columns;
