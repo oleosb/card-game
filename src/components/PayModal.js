@@ -13,7 +13,7 @@ const PayModal = () => {
   return (
     <div className={styles.modalContainer}>
       <div className={styles.modal}>
-        <Title margin={"0 0 20px 0"}>PAGAM</Title>
+        <Title margin={"0 0 20px 0"}>QUEM PAGA?</Title>
 
         <div className={styles.players}>
           {currentRoundData.map((player, idx) => (

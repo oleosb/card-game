@@ -47,23 +47,25 @@ const Players = ({ setPlayersOpen, playersOpen }) => {
           Adicionar
         </Button>
       </form>
-      {players && <Title margin={"20px 0 0 0"}>JOGADORES</Title>}
-
-      {players &&
-        players.map((player, idx) => <Player {...player} key={idx} />)}
+      <Title margin={"20px 0 0 0"}>JOGADORES</Title>
+      {players && (
+        <div className={styles.playersList}>
+          {players.map((player, idx) => (
+            <Player {...player} key={idx} />
+          ))}
+        </div>
+      )}
 
       {players && (
         <Button
           Svg={Thumb}
           dark={true}
           onClick={() => setPlayersOpen(false)}
-          margin={"20px 0 0 0"}
+          margin={"0px 0 0 0"}
         >
           Ok
         </Button>
       )}
-
-      {tableDeck && "aaa"}
     </section>
   );
 };

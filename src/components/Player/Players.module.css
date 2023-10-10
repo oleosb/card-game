@@ -1,8 +1,8 @@
 .players {
   width: 100vw;
   max-width: 500px;
-  height: 100vh;
-  padding: 10% 5%;
+  min-height: 100vh;
+  padding: 40px 20px;
   position: absolute;
   top: 0;
   background: var(--secondary-color);
@@ -47,4 +47,14 @@
 
 .players input::placeholder {
   color: var(--tertiary-color-30);
+}
+
+.playersList {
+  max-height: 400px;
+  overflow: scroll;
+  display: flex;
+  gap: 10px;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
 }
