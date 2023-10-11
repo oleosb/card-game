@@ -7,6 +7,27 @@
   justify-content: space-between;
   align-items: center;
   padding: 20px;
+  position: relative;
+}
+
+.deletePlayer {
+  background: none;
+  border: none;
+  fill: var(--tertiary-color);
+  width: 10px;
+  height: 10px;
+  position: absolute;
+  left: 5px;
+  top: 5px;
+}
+
+.deletePlayer svg {
+  width: 10px;
+  height: 10px;
+}
+
+.deletePlayer svg * {
+  fill: var(--tertiary-color);
 }
 
 .left {

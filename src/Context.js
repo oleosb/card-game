@@ -107,6 +107,12 @@ const GameStorage = ({ children }) => {
     }
   };
 
+  const deletePlayer = (id) => {
+    const playersCopy = players.filter((player) => player.id !== id);
+
+    setPlayers(playersCopy);
+  };
+
   return (
     <Context.Provider
       value={{
@@ -119,6 +125,7 @@ const GameStorage = ({ children }) => {
         setCurrentRoundData,
         flippedCards,
         setFlippedCards,
+        deletePlayer,
       }}
     >
       {children}
