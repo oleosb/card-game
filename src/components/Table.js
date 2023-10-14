@@ -31,7 +31,7 @@ const Table = () => {
 
   return (
     <div className={styles.table}>
-      {/* <SendModal /> */}
+      <SendModal />
       {currentRoundData && <PayModal />}
       <div className={styles.header}>
         <Button Svg={Info}>Como jogar</Button>

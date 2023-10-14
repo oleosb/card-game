@@ -71,6 +71,10 @@ const GameStorage = ({ children }) => {
     });
   };
 
+  const verifySendCards = (toggled) => {
+    console.log(toggled);
+  };
+
   const fetchTableDeck = () => {
     fetch("https://www.deckofcardsapi.com/api/deck/new/draw/?count=25", {
       method: "GET",
@@ -126,6 +130,7 @@ const GameStorage = ({ children }) => {
         flippedCards,
         setFlippedCards,
         deletePlayer,
+        verifySendCards,
       }}
     >
       {children}
