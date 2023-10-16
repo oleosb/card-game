@@ -55,3 +55,15 @@
 .checkers > input:last-of-type {
   margin: 0 0 0 5px;
 }
+
+.checkers > input {
+  all: unset;
+  width: 7px;
+  height: 7px;
+  border: 1px solid var(--tertiary-color-30);
+  display: inline-block;
+}
+
+.checkers > input:checked {
+  background: var(--primary-color);
+}
