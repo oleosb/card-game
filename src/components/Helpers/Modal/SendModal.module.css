@@ -51,3 +51,7 @@
   justify-content: space-between;
   align-items: center;
 }
+
+.checkers > input:last-of-type {
+  margin: 0 0 0 5px;
+}

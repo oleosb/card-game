@@ -131,6 +131,7 @@ const GameStorage = ({ children }) => {
         setFlippedCards,
         deletePlayer,
         verifySendCards,
+        setPlayers,
       }}
     >
       {children}

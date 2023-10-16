@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import { useContext } from "react";
 import Title from "../Title";
 import styles from "./SendModal.module.css";
 import { Context } from "../../../Context";
@@ -6,10 +6,20 @@ import Button from "../Button";
 import { ReactComponent as Thumb } from "../../../imgs/thumbs-up-solid.svg";
 
 const SendModal = () => {
-  const { currentRoundData, setCurrentRoundData, verifySendCards, players } =
-    useContext(Context);
+  const { players, setPlayers } = useContext(Context);
 
-  const [toggled, setToggled] = useState(false);
+  const handleChange = (id, e) => {
+    let playersCopy = [...players];
+    playersCopy.forEach((player) => {
+      if (player.id === id) {
+        if (e.target.checked) {
+          console.log("mais 1");
+        } else {
+          console.log("menos 1");
+        }
+      }
+    });
+  };
 
   return (
     <div className={styles.modalContainer}>
@@ -26,22 +36,22 @@ const SendModal = () => {
         <div className={`${styles.players} ${styles.payers}`}>
           {players.map((player, idx) => (
             <div key={idx}>
-              <div>
-                {player.name} <span>1x</span>
-              </div>
-              <div>
-                <input type="radio" onChange={() => setToggled(true)} />
+              <div>{player.name}</div>
+              <div className={styles.checkers}>
+                <input
+                  type="checkbox"
+                  onChange={(e) => handleChange(player.id, e)}
+                />
+                <input
+                  type="checkbox"
+                  onChange={(e) => handleChange(player.id, e)}
+                />
               </div>
             </div>
           ))}
         </div>
 
-        <Button
-          Svg={Thumb}
-          dark={true}
-          margin={"20px 0 0 0"}
-          onClick={() => verifySendCards(toggled)}
-        >
+        <Button Svg={Thumb} dark={true} margin={"20px 0 0 0"}>
           Ok
         </Button>
       </div>
