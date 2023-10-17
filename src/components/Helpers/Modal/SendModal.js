@@ -6,8 +6,13 @@ import Button from "../Button";
 import { ReactComponent as Thumb } from "../../../imgs/thumbs-up-solid.svg";
 
 const SendModal = () => {
-  const { players, setPlayers, setCurrentRoundData, setSendModal } =
-    useContext(Context);
+  const {
+    players,
+    setPlayers,
+    setCurrentRoundData,
+    setSendModal,
+    currentRoundData,
+  } = useContext(Context);
 
   const handleChange = (id, e) => {
     let playersCopy = [...players];
@@ -30,9 +35,11 @@ const SendModal = () => {
         <Title margin={"0 0 10px 0"}>QUEM MANDA?</Title>
 
         <div className={styles.players}>
-          <div>
-            Leo <span>1x</span>
-          </div>
+          {currentRoundData.map((player, idx) => (
+            <div key={idx}>
+              {player.name} <span>{player.mandos}x</span>
+            </div>
+          ))}
         </div>
 
         <Title margin={"20px 0 10px 0"}>QUEM PAGA?</Title>

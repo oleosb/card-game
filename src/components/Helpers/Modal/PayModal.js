@@ -19,7 +19,7 @@ const PayModal = () => {
         <div className={styles.players}>
           {currentRoundData.map((player, idx) => (
             <div key={idx}>
-              {player.name} <span>{player.castigo}x</span>
+              {player.name} <span>{player.castigos}x</span>
             </div>
           ))}
         </div>
