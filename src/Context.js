@@ -45,15 +45,15 @@ const GameStorage = ({ children }) => {
     let playersCopy = [...players];
     let roundData = [];
 
-    if (row % 2 === 0) {
-      setCurrentRoundData(roundData);
-      setSendModal(true);
-    } else {
-      playersCopy.forEach((player) => {
-        let castigo = 0;
+    playersCopy.forEach((player) => {
+      let castigo = 0;
 
-        player.cards.forEach((card) => {
-          if (card.code === tableCard) {
+      player.cards.forEach((card) => {
+        if (card.code === tableCard) {
+          if (row % 2 === 0) {
+            setCurrentRoundData(roundData);
+            setSendModal(true);
+          } else {
             castigo++;
             player.castigos++;
 
@@ -74,9 +74,9 @@ const GameStorage = ({ children }) => {
             setPlayers(playersCopy);
             setPayModal(true);
           }
-        });
+        }
       });
-    }
+    });
   };
 
   const fetchTableDeck = () => {
