@@ -1,0 +1,13 @@
+.results {
+  width: 100vw;
+  max-width: 500px;
+  min-height: 100vh;
+  padding: 40px 20px;
+  position: absolute;
+  top: 0;
+  background: var(--secondary-color);
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 10px;
+}

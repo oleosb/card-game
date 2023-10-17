@@ -8,7 +8,7 @@ import { useContext, useState } from "react";
 import { Context } from "../../Context";
 
 const Players = ({ setPlayersOpen, playersOpen }) => {
-  const { addPlayer, players, tableDeck } = useContext(Context);
+  const { addPlayer, players } = useContext(Context);
   const [name, setName] = useState("");
 
   const handleFormSubmit = (e) => {

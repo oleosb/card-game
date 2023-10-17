@@ -11,6 +11,7 @@ import { Context } from "../Context";
 import Error from "./Helpers/Error";
 import PayModal from "./Helpers/Modal/PayModal";
 import SendModal from "./Helpers/Modal/SendModal";
+import Results from "./Results";
 
 const Table = () => {
   const [playersOpen, setPlayersOpen] = useState(false);
@@ -78,6 +79,7 @@ const Table = () => {
 
       <Players setPlayersOpen={setPlayersOpen} playersOpen={playersOpen} />
       {error && <Error />}
+      <Results />
     </div>
   );
 };
