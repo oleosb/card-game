@@ -46,28 +46,46 @@ const GameStorage = ({ children }) => {
     let roundData = [];
 
     playersCopy.forEach((player) => {
-      let castigo = 0;
+      let castigos = 0;
+      let mandos = 0;
 
       player.cards.forEach((card) => {
         if (card.code === tableCard) {
           if (row % 2 === 0) {
-            setCurrentRoundData(roundData);
-            setSendModal(true);
-          } else {
-            castigo++;
-            player.castigos++;
+            mandos++;
+            player.mandos++;
 
-            if (castigo > 1) {
+            if (mandos > 1) {
               roundData.forEach((obj) => {
                 if (obj.id === player.id) {
-                  obj.castigo++;
+                  obj.mandos++;
                 }
               });
             } else {
               roundData.push({
                 name: player.name,
                 id: player.id,
-                castigo: castigo,
+                mandos: mandos,
+              });
+            }
+
+            setCurrentRoundData(roundData);
+            setSendModal(true);
+          } else {
+            castigos++;
+            player.castigos++;
+
+            if (castigos > 1) {
+              roundData.forEach((obj) => {
+                if (obj.id === player.id) {
+                  obj.castigos++;
+                }
+              });
+            } else {
+              roundData.push({
+                name: player.name,
+                id: player.id,
+                castigos: castigos,
               });
             }
             setCurrentRoundData(roundData);
