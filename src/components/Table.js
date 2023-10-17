@@ -77,7 +77,7 @@ const Table = () => {
       </div>
 
       <Players setPlayersOpen={setPlayersOpen} playersOpen={playersOpen} />
-      <Error error={error} />
+      {error && <Error />}
     </div>
   );
 };
