@@ -8,7 +8,8 @@ import React, { useContext } from "react";
 import { Context } from "../../../Context";
 
 const PayModal = () => {
-  const { currentRoundData, setCurrentRoundData } = useContext(Context);
+  const { currentRoundData, setCurrentRoundData, setPayModal } =
+    useContext(Context);
 
   return (
     <div className={styles.modalContainer}>
@@ -27,7 +28,10 @@ const PayModal = () => {
           Svg={Thumb}
           dark={true}
           margin={"20px 0 0 0"}
-          onClick={() => setCurrentRoundData("")}
+          onClick={() => {
+            setCurrentRoundData("");
+            setPayModal(false);
+          }}
         >
           Ok
         </Button>

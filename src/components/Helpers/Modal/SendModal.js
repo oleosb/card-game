@@ -6,7 +6,8 @@ import Button from "../Button";
 import { ReactComponent as Thumb } from "../../../imgs/thumbs-up-solid.svg";
 
 const SendModal = () => {
-  const { players, setPlayers } = useContext(Context);
+  const { players, setPlayers, setCurrentRoundData, setSendModal } =
+    useContext(Context);
 
   const handleChange = (id, e) => {
     let playersCopy = [...players];
@@ -53,7 +54,15 @@ const SendModal = () => {
           ))}
         </div>
 
-        <Button Svg={Thumb} dark={true} margin={"20px 0 0 0"}>
+        <Button
+          Svg={Thumb}
+          dark={true}
+          margin={"20px 0 0 0"}
+          onClick={() => {
+            setCurrentRoundData("");
+            setSendModal(false);
+          }}
+        >
           Ok
         </Button>
       </div>

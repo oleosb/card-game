@@ -37,38 +37,46 @@ const GameStorage = ({ children }) => {
   ]);
   const [tableDeck, setTableDeck] = useState("");
   const [currentRoundData, setCurrentRoundData] = useState("");
-
   const [flippedCards, setFlippedCards] = useState(24);
+  const [payModal, setPayModal] = useState(false);
+  const [sendModal, setSendModal] = useState(false);
 
-  const verifyCards = (tableCard) => {
+  const verifyCards = (tableCard, row) => {
     let playersCopy = [...players];
     let roundData = [];
-    playersCopy.forEach((player) => {
-      let castigo = 0;
 
-      player.cards.forEach((card) => {
-        if (card.code === tableCard) {
-          castigo++;
-          player.castigos++;
+    if (row % 2 === 0) {
+      setCurrentRoundData(roundData);
+      setSendModal(true);
+    } else {
+      playersCopy.forEach((player) => {
+        let castigo = 0;
 
-          if (castigo > 1) {
-            roundData.forEach((obj) => {
-              if (obj.id === player.id) {
-                obj.castigo++;
-              }
-            });
-          } else {
-            roundData.push({
-              name: player.name,
-              id: player.id,
-              castigo: castigo,
-            });
+        player.cards.forEach((card) => {
+          if (card.code === tableCard) {
+            castigo++;
+            player.castigos++;
+
+            if (castigo > 1) {
+              roundData.forEach((obj) => {
+                if (obj.id === player.id) {
+                  obj.castigo++;
+                }
+              });
+            } else {
+              roundData.push({
+                name: player.name,
+                id: player.id,
+                castigo: castigo,
+              });
+            }
+            setCurrentRoundData(roundData);
+            setPlayers(playersCopy);
+            setPayModal(true);
           }
-          setCurrentRoundData(roundData);
-          setPlayers(playersCopy);
-        }
+        });
       });
-    });
+    }
   };
 
   const fetchTableDeck = () => {
@@ -127,6 +135,10 @@ const GameStorage = ({ children }) => {
         setFlippedCards,
         deletePlayer,
         setPlayers,
+        setPayModal,
+        payModal,
+        setSendModal,
+        sendModal,
       }}
     >
       {children}

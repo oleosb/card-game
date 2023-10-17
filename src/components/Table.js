@@ -14,7 +14,7 @@ import SendModal from "./Helpers/Modal/SendModal";
 
 const Table = () => {
   const [playersOpen, setPlayersOpen] = useState(false);
-  const { players, fetchTableDeck, tableDeck, currentRoundData } =
+  const { players, fetchTableDeck, tableDeck, payModal, sendModal } =
     useContext(Context);
   const [error, setError] = useState(false);
   const pyramidRef = useRef(null);
@@ -31,8 +31,8 @@ const Table = () => {
 
   return (
     <div className={styles.table}>
-      {/* <SendModal /> */}
-      {currentRoundData && <PayModal />}
+      {sendModal && <SendModal />}
+      {payModal && <PayModal />}
       <div className={styles.header}>
         <Button Svg={Info}>Como jogar</Button>
       </div>

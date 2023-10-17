@@ -14,9 +14,8 @@ const Card = ({ cardC, row }) => {
       +cardRef.current.getAttribute("num") === flippedCards
     ) {
       cardRef.current.setAttribute("flipped", true);
-
       setTimeout(() => {
-        verifyCards(cardRef.current.getAttribute("data"));
+        verifyCards(cardRef.current.getAttribute("data"), row);
         setFlippedCards(flippedCards - 1);
       }, 700);
     }
