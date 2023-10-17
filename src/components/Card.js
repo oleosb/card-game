@@ -9,7 +9,10 @@ const Card = ({ cardC, row }) => {
   const cardRef = useRef(null);
 
   const handleClick = () => {
-    if (+cardRef.current.getAttribute("num") === flippedCards) {
+    if (
+      cardRef.current &&
+      +cardRef.current.getAttribute("num") === flippedCards
+    ) {
       cardRef.current.setAttribute("flipped", true);
 
       setTimeout(() => {

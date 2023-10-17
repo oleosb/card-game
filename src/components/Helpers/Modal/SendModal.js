@@ -13,14 +13,12 @@ const SendModal = () => {
     playersCopy.forEach((player) => {
       if (player.id === id) {
         if (e.target.checked) {
-          console.log(player.castigos);
           player.castigos++;
-          console.log(player.castigos);
         } else {
-          console.log(player.castigos);
           player.castigos--;
-          console.log(player.castigos);
         }
+
+        setPlayers(playersCopy);
       }
     });
   };
