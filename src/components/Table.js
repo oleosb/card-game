@@ -17,7 +17,7 @@ import Results from "./Results";
 const Table = () => {
   const [playersOpen, setPlayersOpen] = useState(false);
   const [resultsOpen, setResultsOpen] = useState(false);
-  const { players, fetchTableDeck, tableDeck, payModal, sendModal, results } =
+  const { players, fetchTableDeck, tableDeck, payModal, sendModal } =
     useContext(Context);
   const [error, setError] = useState(false);
   const pyramidRef = useRef(null);
@@ -68,12 +68,12 @@ const Table = () => {
       </div>
 
       <div className={styles.footer}>
-        {!results && (
+        {!tableDeck && (
           <Button Svg={UserPlus} onClick={() => setPlayersOpen(true)}>
             Adicionar jogador
           </Button>
         )}
-        {results && (
+        {tableDeck && (
           <Button Svg={Result} onClick={() => setResultsOpen(true)}>
             Resultado
           </Button>

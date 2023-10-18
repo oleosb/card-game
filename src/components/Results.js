@@ -3,8 +3,10 @@ import { Context } from "../Context";
 import Player from "./Player/Player";
 import styles from "./Results.module.css";
 import Title from "./Helpers/Title";
+import Button from "./Helpers/Button";
+import { ReactComponent as Thumb } from "../imgs/thumbs-up-solid.svg";
 
-const Results = ({ resultsOpen }) => {
+const Results = ({ resultsOpen, setResultsOpen }) => {
   const { players } = useContext(Context);
 
   return (
@@ -21,6 +23,15 @@ const Results = ({ resultsOpen }) => {
           ))}
         </>
       )}
+
+      <Button
+        Svg={Thumb}
+        dark={true}
+        onClick={() => setResultsOpen(false)}
+        margin={"20px 0 0 0"}
+      >
+        Ok
+      </Button>
     </section>
   );
 };
