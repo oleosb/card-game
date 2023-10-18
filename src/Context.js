@@ -40,7 +40,6 @@ const GameStorage = ({ children }) => {
   const [flippedCards, setFlippedCards] = useState(24);
   const [payModal, setPayModal] = useState(false);
   const [sendModal, setSendModal] = useState(false);
-  const [results, setResults] = useState(false);
 
   const verifyCards = (tableCard, row) => {
     let playersCopy = [...players];
@@ -144,22 +143,21 @@ const GameStorage = ({ children }) => {
     <Context.Provider
       value={{
         players,
+        tableDeck,
+        currentRoundData,
+        flippedCards,
+        payModal,
+        sendModal,
         addPlayer,
         fetchTableDeck,
-        tableDeck,
         verifyCards,
-        currentRoundData,
         setCurrentRoundData,
-        flippedCards,
         setFlippedCards,
         deletePlayer,
         setPlayers,
         setPayModal,
-        payModal,
         setSendModal,
-        sendModal,
-        setResults,
-        results,
+        setTableDeck,
       }}
     >
       {children}

@@ -17,10 +17,20 @@ import Results from "./Results";
 const Table = () => {
   const [playersOpen, setPlayersOpen] = useState(false);
   const [resultsOpen, setResultsOpen] = useState(false);
-  const { players, fetchTableDeck, tableDeck, payModal, sendModal } =
-    useContext(Context);
+  const {
+    players,
+    fetchTableDeck,
+    tableDeck,
+    payModal,
+    sendModal,
+    setTableDeck,
+    setCurrentRoundData,
+    setFlippedCards,
+    setPlayers,
+  } = useContext(Context);
   const [error, setError] = useState(false);
   const pyramidRef = useRef(null);
+  const [key, setKey] = useState(0);
 
   function fetchCardsValidation() {
     if (players.length < 2) {
@@ -32,6 +42,21 @@ const Table = () => {
     }
   }
 
+  function resetGame() {
+    setKey((k) => k + 1);
+    setTableDeck("");
+    setCurrentRoundData("");
+    setFlippedCards(24);
+    let playersCopy = [...players];
+
+    playersCopy.forEach((player) => {
+      player.mandos = 0;
+      player.castigos = 0;
+    });
+
+    setPlayers(playersCopy);
+  }
+
   return (
     <div className={styles.table}>
       {sendModal && <SendModal />}
@@ -39,7 +64,7 @@ const Table = () => {
       <div className={styles.header}>
         <Button Svg={Info}>Como jogar</Button>
       </div>
-      <div className={styles.pyramid} ref={pyramidRef}>
+      <div className={styles.pyramid} ref={pyramidRef} key={key}>
         {(() => {
           let rows = [];
           let n = 5;
@@ -83,7 +108,11 @@ const Table = () => {
             Dar cartas
           </Button>
         )}
-        {tableDeck && <Button Svg={Reset}>Resetar</Button>}
+        {tableDeck && (
+          <Button Svg={Reset} onClick={() => resetGame()}>
+            Resetar
+          </Button>
+        )}
       </div>
 
       <Players setPlayersOpen={setPlayersOpen} playersOpen={playersOpen} />
