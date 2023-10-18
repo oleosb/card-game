@@ -3,7 +3,7 @@ import styles from "./Card.module.css";
 import { Context } from "../Context";
 
 const Card = ({ cardC, row }) => {
-  const { tableDeck, verifyCards, flippedCards, setFlippedCards } =
+  const { tableDeck, verifyCards, flippedCards, setFlippedCards, setResults } =
     useContext(Context);
 
   const cardRef = useRef(null);
@@ -18,6 +18,10 @@ const Card = ({ cardC, row }) => {
         verifyCards(cardRef.current.getAttribute("data"), row);
         setFlippedCards(flippedCards - 1);
       }, 700);
+
+      if (flippedCards === 0) {
+        setResults(true);
+      }
     }
   };
 

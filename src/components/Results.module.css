@@ -10,4 +10,13 @@
   align-items: center;
   flex-direction: column;
   gap: 10px;
+  transition: left 0.3s ease;
+}
+
+.results.open {
+  left: 0;
+}
+
+.results.close {
+  left: -100%;
 }

@@ -8,8 +8,8 @@ const GameStorage = ({ children }) => {
       id: nanoid(),
       name: "teste",
       cards: [
-        { code: "7", src: "cards[0].image" },
-        { code: "QUEEN", src: "cards[1].image" },
+        { code: "7f", src: "cards[0].image" },
+        { code: "QUEENf", src: "cards[1].image" },
       ],
       mandos: 0,
       castigos: 0,
@@ -18,8 +18,8 @@ const GameStorage = ({ children }) => {
       id: nanoid(),
       name: "teste2",
       cards: [
-        { code: "QUEEN", src: "cards[0].image" },
-        { code: "QUEEN", src: "cards[1].image" },
+        { code: "QUEENf", src: "cards[0].image" },
+        { code: "QUEENf", src: "cards[1].image" },
       ],
       mandos: 0,
       castigos: 0,
@@ -28,8 +28,8 @@ const GameStorage = ({ children }) => {
       id: nanoid(),
       name: "teste3",
       cards: [
-        { code: "QUEEN", src: "cards[0].image" },
-        { code: "ACE", src: "cards[1].image" },
+        { code: "QUEENf", src: "cards[0].image" },
+        { code: "ACEf", src: "cards[1].image" },
       ],
       mandos: 0,
       castigos: 0,
@@ -40,6 +40,7 @@ const GameStorage = ({ children }) => {
   const [flippedCards, setFlippedCards] = useState(24);
   const [payModal, setPayModal] = useState(false);
   const [sendModal, setSendModal] = useState(false);
+  const [results, setResults] = useState(false);
 
   const verifyCards = (tableCard, row) => {
     let playersCopy = [...players];
@@ -157,6 +158,8 @@ const GameStorage = ({ children }) => {
         payModal,
         setSendModal,
         sendModal,
+        setResults,
+        results,
       }}
     >
       {children}
