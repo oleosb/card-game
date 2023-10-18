@@ -50,11 +50,26 @@
 }
 
 .playersList {
-  max-height: 400px;
+  height: 400px;
   overflow: scroll;
   display: flex;
   gap: 10px;
   flex-direction: column;
   align-items: center;
   width: 100%;
+}
+
+/* width */
+::-webkit-scrollbar {
+  display: none;
+}
+
+@media (min-width: 700px) {
+  .playersList {
+    height: 700px;
+  }
+
+  .players input {
+    font-size: 15px;
+  }
 }

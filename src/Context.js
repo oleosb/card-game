@@ -3,38 +3,7 @@ import { nanoid } from "nanoid";
 export const Context = React.createContext();
 
 const GameStorage = ({ children }) => {
-  const [players, setPlayers] = useState([
-    {
-      id: nanoid(),
-      name: "teste",
-      cards: [
-        { code: "7f", src: "cards[0].image" },
-        { code: "QUEENf", src: "cards[1].image" },
-      ],
-      mandos: 0,
-      castigos: 0,
-    },
-    {
-      id: nanoid(),
-      name: "teste2",
-      cards: [
-        { code: "QUEENf", src: "cards[0].image" },
-        { code: "QUEENf", src: "cards[1].image" },
-      ],
-      mandos: 0,
-      castigos: 0,
-    },
-    {
-      id: nanoid(),
-      name: "teste3",
-      cards: [
-        { code: "QUEENf", src: "cards[0].image" },
-        { code: "ACEf", src: "cards[1].image" },
-      ],
-      mandos: 0,
-      castigos: 0,
-    },
-  ]);
+  const [players, setPlayers] = useState([]);
   const [tableDeck, setTableDeck] = useState("");
   const [currentRoundData, setCurrentRoundData] = useState("");
   const [flippedCards, setFlippedCards] = useState(24);

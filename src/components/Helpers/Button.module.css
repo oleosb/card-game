@@ -56,5 +56,11 @@
 }
 
 .button:disabled {
-  cursor:not-allowed;
+  cursor: not-allowed;
+}
+
+@media (min-width: 700px) {
+  .button {
+    font-size: 17px;
+  }
 }

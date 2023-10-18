@@ -37,3 +37,10 @@
   background-repeat: no-repeat;
   border-radius: 1px;
 }
+
+@media (min-width: 700px) {
+  .cardContainer {
+    width: 55px;
+    height: 78.66px;
+  }
+}
