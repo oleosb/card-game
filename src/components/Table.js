@@ -13,10 +13,12 @@ import Error from "./Helpers/Error";
 import PayModal from "./Helpers/Modal/PayModal";
 import SendModal from "./Helpers/Modal/SendModal";
 import Results from "./Results";
+import HTP from "./HTP";
 
 const Table = () => {
   const [playersOpen, setPlayersOpen] = useState(false);
   const [resultsOpen, setResultsOpen] = useState(false);
+  const [htpOpen, setHtpOpen] = useState(false);
   const {
     players,
     fetchTableDeck,
@@ -62,7 +64,9 @@ const Table = () => {
       {sendModal && <SendModal />}
       {payModal && <PayModal />}
       <div className={styles.header}>
-        <Button Svg={Info}>Como jogar</Button>
+        <Button Svg={Info} onClick={() => setHtpOpen(true)}>
+          Como jogar
+        </Button>
       </div>
       <div className={styles.pyramid} ref={pyramidRef} key={key}>
         {(() => {
@@ -118,6 +122,7 @@ const Table = () => {
       <Players setPlayersOpen={setPlayersOpen} playersOpen={playersOpen} />
       <Results setResultsOpen={setResultsOpen} resultsOpen={resultsOpen} />
       {error && <Error />}
+      {htpOpen && <HTP setHtpOpen={setHtpOpen} htpOpen={htpOpen} />}
     </div>
   );
 };
