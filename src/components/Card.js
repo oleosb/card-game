@@ -1,4 +1,4 @@
-import { useContext, useRef } from "react";
+import { useContext, useEffect, useRef, useState } from "react";
 import styles from "./Card.module.css";
 import { Context } from "../Context";
 
@@ -7,6 +7,7 @@ const Card = ({ cardC, row }) => {
     useContext(Context);
 
   const cardRef = useRef(null);
+  const [cardColor, setCardColor] = useState("");
 
   const handleClick = () => {
     if (
@@ -25,6 +26,16 @@ const Card = ({ cardC, row }) => {
     }
   };
 
+  useEffect(() => {
+    let color = row % 2;
+
+    if (color === 0) {
+      setCardColor(true);
+    } else {
+      setCardColor(false);
+    }
+  }, [row]);
+
   return (
     <div
       className={styles.cardContainer}
@@ -35,7 +46,13 @@ const Card = ({ cardC, row }) => {
       row={row}
     >
       <div className={`${styles.card}`}>
-        {tableDeck && <div className={styles.backCard}></div>}
+        {tableDeck && (
+          <div
+            className={`${styles.backCard} ${
+              cardColor ? styles.par : styles.impar
+            }`}
+          ></div>
+        )}
         {tableDeck && (
           <img
             className={`${styles.frontCard} ${styles.hidden}`}
